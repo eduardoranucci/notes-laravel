@@ -12,9 +12,19 @@ class AuthController extends Controller {
 
     public function loginSubmit(Request $request) {
 
-        echo $request->input('usuario');
-        echo '<br>';
-        echo $request->input('senha');
+        // validação do form
+        $request->validate(
+            [
+                'usuario' => 'required',
+                'senha' => 'required',
+            ]
+        );
+
+        // get input do usuario
+        $usuario = $request->input('usuario');
+        $senha = $request->input('senha');
+        
+        echo 'OK!';
     }
 
     public function logout() {
