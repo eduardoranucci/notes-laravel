@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class MainController extends Controller {
     
     public function index() {
-        echo 'dentro do app!';
+        return view('home');
     }
 
     public function novaNota() {
