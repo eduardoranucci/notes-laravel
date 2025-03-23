@@ -18,11 +18,11 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label for="text_username" class="form-label">Username</label>
-                                    <input type="text" class="form-control bg-dark text-info" name="text_username" required>
+                                    <input type="text" class="form-control bg-dark text-info" name="usuario" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="text_password" class="form-label">Password</label>
-                                    <input type="password" class="form-control bg-dark text-info" name="text_password" required>
+                                    <input type="password" class="form-control bg-dark text-info" name="senha" required>
                                 </div>
                                 <div class="mb-3">
                                     <button type="submit" class="btn btn-secondary w-100">LOGIN</button>
