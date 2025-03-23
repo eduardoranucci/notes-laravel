@@ -40,6 +40,14 @@
                                     <button type="submit" class="btn btn-secondary w-100">Login</button>
                                 </div>
                             </form>
+
+                            {{-- login invalido --}}
+                            @if (session('erroLogin'))
+                                <div class="alert alert-danger text-center">
+                                    {{ session('erroLogin') }}
+                                </div>
+                            @endif
+
                         </div>
                     </div>
 
