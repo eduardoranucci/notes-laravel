@@ -14,9 +14,18 @@ class AuthController extends Controller {
 
         // validação do form
         $request->validate(
+            // regras
             [
-                'usuario' => 'required',
-                'senha' => 'required',
+                'usuario' => 'required|email',
+                'senha' => 'required|min:6|max:16',
+            ],
+            // mensagens de erro
+            [
+                'usuario.required' => 'O E-mail é obrigatório',
+                'usuario.email' => 'O E-mail deve ser válido',
+                'senha.required' => 'A senha é obrigatória',
+                'senha.min' => 'A senha deve ter no mínimo :min caracteres',
+                'senha.max' => 'A senha deve ter no máximo :max caracteres',
             ]
         );
 

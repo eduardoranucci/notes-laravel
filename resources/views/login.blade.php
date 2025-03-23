@@ -14,11 +14,11 @@
                     <!-- form -->
                     <div class="row justify-content-center">
                         <div class="col-md-10 col-12">
-                            <form action="/loginSubmit" method="post">
+                            <form action="/loginSubmit" method="post" novalidate>
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="text_username" class="form-label">Username</label>
-                                    <input type="text" class="form-control bg-dark text-info" name="usuario" value="{{ old('usuario') }}">
+                                    <label for="usuario" class="form-label">E-mail</label>
+                                    <input type="email" class="form-control bg-dark text-info" name="usuario" value="{{ old('usuario') }}" required>
 
                                     {{-- mostra erro --}}
                                     @error('usuario')
@@ -27,8 +27,8 @@
                                     
                                 </div>
                                 <div class="mb-3">
-                                    <label for="text_password" class="form-label">Password</label>
-                                    <input type="password" class="form-control bg-dark text-info" name="senha" value="{{ old('senha') }}">
+                                    <label for="senha" class="form-label">Senha</label>
+                                    <input type="password" class="form-control bg-dark text-info" name="senha" value="{{ old('senha') }}" required>
                                     
                                     {{-- mostra erro --}}
                                     @error('senha')
@@ -37,7 +37,7 @@
                                 
                                 </div>
                                 <div class="mb-3">
-                                    <button type="submit" class="btn btn-secondary w-100">LOGIN</button>
+                                    <button type="submit" class="btn btn-secondary w-100">Login</button>
                                 </div>
                             </form>
                         </div>
