@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller {
     
@@ -33,7 +34,15 @@ class AuthController extends Controller {
         $usuario = $request->input('usuario');
         $senha = $request->input('senha');
         
-        echo 'OK!';
+        // testa conexão com a base de dados
+        try {
+            DB::connection()->getPdo();
+            echo 'Conexão OK!';
+        } catch (\PDOException $e) {
+            echo 'Conexão falhou: ' . $e->getMessage();
+        }
+
+        echo '<br>Fim';
     }
 
     public function logout() {
