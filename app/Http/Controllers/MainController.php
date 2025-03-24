@@ -62,6 +62,11 @@ class MainController extends Controller {
     public function edita($id) {
 
         $id = Operacoes::descriptografaId($id);
+
+        if ($id === null) {
+            return redirect()->route('home');
+        }
+
         $nota = Nota::find($id);
 
         return view('edita_nota', ['nota' => $nota]);
@@ -95,6 +100,10 @@ class MainController extends Controller {
         // descriptografa o id
         $id = Operacoes::descriptografaId($request->nota_id);
 
+        if ($id === null) {
+            return redirect()->route('home');
+        }
+
         // recupera a nota
         $nota = Nota::find($id);
 
@@ -110,6 +119,10 @@ class MainController extends Controller {
     public function deleta($id) {
 
         $id = Operacoes::descriptografaId($id);
+
+        if ($id === null) {
+            return redirect()->route('home');
+        }
         
         // recupera a nota
         $nota = Nota::find($id);
@@ -122,6 +135,10 @@ class MainController extends Controller {
 
         // descriptografa o id
         $id = Operacoes::descriptografaId($id);
+
+        if ($id === null) {
+            return redirect()->route('home');
+        }
 
         // recupera a nota
         $nota = Nota::find($id);

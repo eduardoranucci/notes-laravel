@@ -12,7 +12,7 @@ class Operacoes {
         try {
             $valor = Crypt::decrypt($valor);
         } catch (DecryptException $e) {
-            return redirect()->route('home');
+            return null;
         }
         
         return $valor;
