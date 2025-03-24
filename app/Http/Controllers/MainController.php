@@ -10,15 +10,9 @@ class MainController extends Controller {
     public function index() {
 
         $id = session('usuario.id');
-        $usuario = Usuario::find($id)->toArray();
         $notas = Usuario::find($id)->notas()->get()->toArray();
 
-        echo '<pre>';
-        print_r($usuario);
-        print_r($notas);
-        die();
-
-        return view('home');
+        return view('home', ['notas' => $notas]);
     }
 
     public function novaNota() {
