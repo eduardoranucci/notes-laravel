@@ -15,7 +15,7 @@ class MainController extends Controller {
         return view('home', ['notas' => $notas]);
     }
 
-    public function novaNota() {
+    public function novo() {
         echo 'criando nova nota';
     }
 

@@ -15,6 +15,6 @@ Route::middleware([VerificaNaoAutenticado::class])->group( function() {
 Route::middleware([VerificaAutenticacao::class])->group( function() {
     // rotas principais
     Route::get('/', [MainController::class, 'index'])->name('home');
-    Route::get('/novaNota', [MainController::class, 'novaNota'])->name('new');
+    Route::get('/novo', [MainController::class, 'novo'])->name('novo');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
