@@ -36,8 +36,8 @@ class AuthController extends Controller {
 
         // checa se o usuario existe
         $usuario = Usuario::where('usuario', $usuario)
-        ->where('deleted_at', NULL)
-        ->first();
+            ->where('deleted_at', NULL)
+            ->first();
 
         if(!$usuario) {
             return redirect()

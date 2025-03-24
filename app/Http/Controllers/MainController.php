@@ -12,7 +12,11 @@ class MainController extends Controller {
     public function index() {
 
         $id = session('usuario.id');
-        $notas = Usuario::find($id)->notas()->get()->toArray();
+        $notas = Usuario::find($id)
+            ->notas()
+            ->whereNull('deleted_at')
+            ->get()
+            ->toArray();
 
         return view('home', ['notas' => $notas]);
     }
@@ -106,6 +110,30 @@ class MainController extends Controller {
     public function deleta($id) {
 
         $id = Operacoes::descriptografaId($id);
-        echo "deletando a nota $id";
+        
+        // recupera a nota
+        $nota = Nota::find($id);
+
+        // mostra confirmação
+        return view('deleta_nota', ['nota' => $nota]);
+    }
+
+    public function deletaConfirmacao($id) {
+
+        // descriptografa o id
+        $id = Operacoes::descriptografaId($id);
+
+        // recupera a nota
+        $nota = Nota::find($id);
+
+        // hard delete
+        // $nota->delete();
+
+        // soft delete
+        $nota->deleted_at = date('Y-m-d H:i:s');
+        $nota->save();
+
+        // redireciona para a home
+        return redirect()->route('home');
     }
 }
