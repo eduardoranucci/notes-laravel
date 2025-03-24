@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use App\Services\Operacoes;
-use Illuminate\Contracts\Encryption\DecryptException;
-use Illuminate\Support\Facades\Crypt;
+use Illuminate\Http\Request;
 
 class MainController extends Controller {
     
@@ -18,7 +17,11 @@ class MainController extends Controller {
     }
 
     public function novo() {
-        echo 'criando nova nota';
+        return view('nova_nota');
+    }
+
+    public function novoSubmit(Request $request) {
+        echo "criando nova nota";
     }
 
     public function edita($id) {
