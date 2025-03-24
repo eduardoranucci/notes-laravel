@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Nota extends Model {
     
+    use SoftDeletes;
+
     public function usuario() {
         return $this->belongsTo(Usuario::class);
     }
