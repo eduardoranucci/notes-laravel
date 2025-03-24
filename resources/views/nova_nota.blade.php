@@ -26,12 +26,24 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label">Note Title</label>
-                                <input type="text" class="form-control bg-primary text-white" name="text_title">
+                                <input type="text" class="form-control bg-primary text-white" name="titulo" value='{{ old('titulo') }}'>
                             </div>
+
+                            {{-- mostra o erro --}}
+                            @error('titulo')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
                             <div class="mb-3">
                                 <label class="form-label">Note Text</label>
-                                <textarea class="form-control bg-primary text-white" name="text_note" rows="5"></textarea>
+                                <textarea class="form-control bg-primary text-white" name="texto" rows="5">{{ old('texto') }}</textarea>
                             </div>
+
+                            {{-- mostra o erro --}}
+                            @error('texto')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+
                         </div>
                     </div>
                     <div class="row mt-3">
