@@ -18,6 +18,7 @@ Route::middleware([VerificaAutenticacao::class])->group( function() {
     Route::get('/novo', [MainController::class, 'novo'])->name('novo');
     Route::post('/novoSubmit', [MainController::class, 'novoSubmit'])->name('novoSubmit');
     Route::get('/edita/{id}', [MainController::class, 'edita'])->name('edita');
+    Route::post('/editaSubmit', [MainController::class, 'editaSubmit'])->name('editaSubmit');
     Route::get('/deleta/{id}', [MainController::class, 'deleta'])->name('deleta');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

@@ -58,7 +58,9 @@ class MainController extends Controller {
     public function edita($id) {
 
         $id = Operacoes::descriptografaId($id);
-        echo "editando a nota $id";
+        $nota = Nota::find($id);
+
+        return view('edita_nota', ['nota' => $nota]);
     }
 
     public function deleta($id) {
